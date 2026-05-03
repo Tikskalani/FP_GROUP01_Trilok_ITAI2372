@@ -38,7 +38,7 @@ You need Python 3.10 or newer.
 
 ```
 python -m venv .venv
-source .venv/bin/activate           # or .venv\Scripts\activate on Windows
+source .venv/bin/activate  # or .venv\Scripts\activate on Windows
 pip install -r requirements.txt
 ```
 
@@ -53,8 +53,8 @@ Kepler-22b):
 
 ```
 python -m src.main predict --koi-period 9.488 --koi-duration 2.95 \
-    --koi-depth 615.8 --koi-prad 2.26 --koi-teq 793 --koi-insol 93.59 \
-    --koi-model-snr 35.8 --koi-steff 5455 --koi-slogg 4.467 --koi-srad 0.927
+  --koi-depth 615.8 --koi-prad 2.26 --koi-teq 793 --koi-insol 93.59 \
+  --koi-model-snr 35.8 --koi-steff 5455 --koi-slogg 4.467 --koi-srad 0.927
 ```
 
 To run the tests:
@@ -62,6 +62,16 @@ To run the tests:
 ```
 pytest -v
 ```
+
+## Results
+
+The Random Forest classifier achieves **~89% accuracy** on the held-out test set.
+
+![Confusion matrix](assets/confusion_matrix.png)
+
+The model is better at catching false positives than confirmed planets — a
+reasonable trade-off for a first pass where flagging bad candidates matters
+more than missing a few real ones.
 
 ## Documentation
 
